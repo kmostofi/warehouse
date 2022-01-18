@@ -29,4 +29,7 @@ Developed in Visual Studio Code and you need to install Material UI.
 It consist of 1 page that shows a list of cars in different warehouse, user can view the location of the car and 
 also purchase the selected car.
 
+TO RUN THE PROJECT:
+- Run WAPI project before Running Warehouse APP from console. 
+
 
