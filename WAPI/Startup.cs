@@ -25,11 +25,11 @@ namespace WAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().
-                AllowAnyHeader());
-            });
+            //services.AddCors(c =>
+            //{
+            //    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().
+            //    AllowAnyHeader().WithOrigins("http://localhost:3000"));
+            //});
 
             services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.
             ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore).
@@ -43,7 +43,7 @@ namespace WAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            // app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().WithOrigins("http://localhost:3000"));
 
             if (env.IsDevelopment())
             {

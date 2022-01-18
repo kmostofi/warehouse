@@ -25,7 +25,7 @@ namespace WAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicles()
         {
-            return await _context.Vehicles.ToListAsync();
+            return await _context.Vehicles.OrderByDescending(o => o.DateAdded).ToListAsync();
         }
 
         // GET: api/Vehicle/5

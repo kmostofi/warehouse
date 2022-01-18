@@ -42,6 +42,20 @@ namespace WAPI.Controllers
             return warehouse;
         }
 
+        // GET: api/GetVehicleLocation/5
+        [HttpGet("GetVehicleLocation/{id}")]
+        public async Task<ActionResult<Warehouse>> GetVehicleLocation(long id)
+        {
+            var warehouse = await _context.Warehouses.FindAsync(id);
+
+            if (warehouse == null)
+            {
+                return NotFound();
+            }
+
+            return warehouse;
+        }
+
         // PUT: api/Warehouse/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
