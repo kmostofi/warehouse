@@ -55,13 +55,7 @@ namespace WAPI.Data
                     .HasColumnType("INT")
                     .HasColumnName("year_model");
 
-                entity.Property(e => e.Location)
-                   .HasColumnType("VARCHAR")
-                   .HasColumnName("Location");
 
-                entity.Property(e => e.Warehouse)
-                  .HasColumnType("VARCHAR")
-                  .HasColumnName("Warehouse");
             });
 
             modelBuilder.Entity<Warehouse>(entity =>

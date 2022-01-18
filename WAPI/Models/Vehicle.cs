@@ -13,8 +13,6 @@ namespace WAPI.Models
         public double? Price { get; set; }
         public Boolean Licensed { get; set; }
         public string DateAdded { get; set; }
-        public string Location { get; set; }
-        public string Warehouse { get; set; }
         public Vehicle()
         {
 
@@ -22,8 +20,7 @@ namespace WAPI.Models
 
         public Vehicle(long id, long? warehouseid,
             string make, string model, long? yearModel,
-            double? price, Boolean licensed, string dateAdded,
-            string location, string warehouse)
+            double? price, Boolean licensed, string dateAdded)
         {
             Id = id;
             Warehouseid = warehouseid;
@@ -33,8 +30,7 @@ namespace WAPI.Models
             Price = price;
             Licensed = licensed;
             DateAdded = dateAdded;
-            Location = location;
-            Warehouse = warehouse;
+
         }
     }
 }
