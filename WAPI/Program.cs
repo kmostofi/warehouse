@@ -16,6 +16,8 @@ namespace WAPI
 {
     public class Program
     {
+        public static Int32 CallCounterValue { get; set; }
+
         public static void Main(string[] args)
         {
             // CreateHostBuilder(args).Build().Run();
@@ -48,6 +50,8 @@ namespace WAPI
                                   });
             });
 
+            builder.Services.AddScoped<iCallCounter, CallCounterService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -57,6 +61,12 @@ namespace WAPI
                 app.UseSwaggerUI();
             }
 
+            //app.Use(async (context, next) =>
+            //{
+            //    CallCounter += 1;
+            //    await next.Invoke();
+            //});
+
             app.UseCors(MyAllowSpecificOrigins);
 
             app.UseHttpsRedirection();
@@ -64,6 +74,8 @@ namespace WAPI
             app.UseAuthorization();
 
             app.MapControllers();
+
+
 
             app.Run();
         }
